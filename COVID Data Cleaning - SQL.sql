@@ -1,6 +1,4 @@
-Select *
-from PortfolioProjects..NashvilleHousing
-
+## Data Cleaning 
 -- Standardize the date format
 
 Select SaleDate, CONVERT(Date, SaleDate) 
@@ -12,6 +10,7 @@ Add SaleDateConverted Date
 Update NashvilleHousing
 SET SaleDateConverted = CONVERT(Date, SaleDate)
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Populate property address data
 
@@ -22,6 +21,8 @@ JOIN PortfolioProjects..NashvilleHousing b
 	on a.ParcelID = b.ParcelID
 	and a.[UniqueID ] <> b.[UniqueID ]
 where a.PropertyAddress is null
+
+------------------------------------------------------------------------------------------------------------------------
 
 -- Breaking Address into different columns
 Select PropertyAddress
@@ -60,6 +61,8 @@ Add OwnerSplitState Nvarchar(255);
 Update NashvilleHousing
 SET OwnerSplitState = PARSENAME(REPLACE(OwnerAddress, ',', '.') , 1)
 
+------------------------------------------------------------------------------------------------------------------------
+
 -- Change Y and N to Yes and No in "Sold as Vacant" field
 
 Update NashvilleHousing
@@ -68,6 +71,8 @@ SET SoldAsVacant = CASE When SoldAsVacant = 'Y' THEN 'Yes'
 	   Else SoldAsVacant
 	   END
 from PortfolioProjects..NashvilleHousing
+
+------------------------------------------------------------------------------------------------------------------------
 
 -- Remove Dupilcates 
 WITH RowNumCTE AS(
@@ -89,6 +94,8 @@ Select *
 From RowNumCTE
 Where row_num > 1
 Order by PropertyAddress
+
+------------------------------------------------------------------------------------------------------------------------
 
 -- Remove Unwanted Columns
 ALTER TABLE PortfolioProjects..NashvilleHousing

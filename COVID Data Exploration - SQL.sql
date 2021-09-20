@@ -7,6 +7,7 @@ from PortfolioProjects..CovidDeaths
 where continent is not NULL
 order by location, date
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Query to determine the likelihood of deing if you contract covid in your country
 
@@ -15,6 +16,7 @@ from PortfolioProjects..CovidDeaths
 where location like 'Australia'
 order by location, date
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Query to shows what percentage of total population got Covid
 select location, date, total_cases, population, (total_cases/population)*100 as PopulationPercentage
@@ -22,6 +24,7 @@ from PortfolioProjects..CovidDeaths
 where location like 'Australia'
 order by location, date
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Query to look at countries with highest infection rate compared to total population
 select location, population, MAX(total_cases) as HighestInfectionCount, MAX((total_cases/population))*100 as PopulationPercentageInfected
@@ -30,6 +33,7 @@ where continent is not NULL
 Group by location, population
 order by PopulationPercentageInfected desc
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Query to show the countries with highest Death Count per population
 select location, MAX(cast(total_deaths as int)) as TotalDeathCount
@@ -38,6 +42,7 @@ where continent is not NULL
 Group by location
 order by TotalDeathCount desc
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Query to show the continents with highest death count per population
 select continent, MAX(cast(total_deaths as int)) as TotalDeathCount
@@ -46,6 +51,7 @@ where continent is not NULL
 Group by continent
 order by TotalDeathCount desc
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Global Numbers
 select date, SUM(new_cases) as totalcases, SUM(cast(new_deaths as int)) as totaldeaths, SUM(cast(new_deaths as int))/SUM
@@ -61,6 +67,7 @@ from PortfolioProjects..CovidDeaths
 where continent is not NULL
 order by 1, 2
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Query to get the vaccination number as per the total population based on location
 select death.continent, death.location, death.date, death.population, vac.new_vaccinations
@@ -73,6 +80,7 @@ Join PortfolioProjects..CovidVaccinations vac
 where death.continent is not NULL
 order by 2,3
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Query to get the vaccination number as per the total population based on location using Common Table Expressions (CTE)
 With PopvsVac (Continent, location, date, population, New_Vaccinations, RollingPeopleVaccinated)
@@ -91,6 +99,7 @@ where death.continent is not NULL
 select *, (RollingPeopleVaccinated/population)*100
 from PopvsVac
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Query to get the vaccination rate as per the total population based on location using Temp Table
 Drop Table if exists #PercentPopulationVaccinated
@@ -116,6 +125,7 @@ Join PortfolioProjects..CovidVaccinations vac
 select *, (RollingPeopleVaccinated/population)*100
 from #PercentPopulationVaccinated
 
+------------------------------------------------------------------------------------------------------------------------
 
 -- Query to creating View to store data for visualizations
 Create View PercentPopulationVaccinated as

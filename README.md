@@ -1,9 +1,10 @@
 # Data Analyst Portfolio 
 ## 1. Data Exploration
-**Tools used: SQL, Python, Excel
-**Skills Covered
-* Basic SQL: SELECT, UPDATE, INSERT, DELETE
-* Advanced SQL: JOIN, CTEs, TEMP table, SUBSTRING, PARSEINDEX
+* Project 1: 
+  * Tools used: SQL, Python, Excel
+  * Skills Covered
+    * Basic SQL: SELECT, UPDATE, INSERT, DELETE
+    * Advanced SQL: JOIN, CTEs, TEMP table, SUBSTRING, PARSEINDEX
 
 ## 2. Data Visualization
 Tableau Projects:

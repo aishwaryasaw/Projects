@@ -1,7 +1,9 @@
 # Data Analyst Portfolio 
-## 1. Exploratory Data Analysis
-- This includes the steps taken to perform initial investigations to determine patterns, abnormalities, to test hypothesis and check assumptions.
-- Tools used: SQL, Python, Excel
+## 1. Data Exploration
+**Tools used: SQL, Python, Excel
+**Skills Covered
+* Basic SQL: SELECT, UPDATE, INSERT, DELETE
+* Advanced SQL: JOIN, CTEs, TEMP table, SUBSTRING, PARSEINDEX
 
 ## 2. Data Visualization
 Tableau Projects:

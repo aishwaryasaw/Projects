@@ -1,4 +1,6 @@
-# Data Analyst Portfolio 
+# Data Analyst Skills
+This repository is the collection of projects showcasing my skills in making a data-driven decision.
+
 ## 1. Data Exploration
 * Project 1: [Initial Analysis on COVID-19 data using SQL]( https://github.com/aishwaryasaw/Projects/blob/5c9f2bd32f32d537c93093b418f0c6f873734e93/COVID%20Data%20Exploration%20-%20SQL.sql)
   * Skills Covered:
